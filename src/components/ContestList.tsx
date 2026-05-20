@@ -44,7 +44,7 @@ export default function ContestList() {
 
       window.setTimeout(() => {
         setPendingScrollContestId(null);
-      }, 1600);
+      }, 3600);
     });
   }, [pendingScrollContestId, setPendingScrollContestId]);
 
