@@ -169,7 +169,7 @@ h3 {
   text-align: center;
   overflow: hidden;
   background-color: #0b3c5d;
-  background-image: url("/surf-contest-atlas-hero-world.svg");
+  background-image: url("/contest-atlas-hero-world.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1837,9 +1837,86 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/Surf-Contest-Atlas-bg.webp");
+  background-image: url("/contest-atlas-bg.webp");
   background-repeat: repeat;
   background-size: 1400px;
   pointer-events: none;
   z-index: -1;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  background: rgba(11, 60, 93, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-radius: 12px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.cookie-banner button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.cookie-banner button:first-child {
+  background: #ff8a1c;
+  color: #ffffff;
+}
+
+.cookie-banner button:last-child {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cookie-banner button:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cookie-banner__actions {
+    width: 100%;
+  }
+
+  .cookie-banner button {
+    flex: 1;
+  }
 }

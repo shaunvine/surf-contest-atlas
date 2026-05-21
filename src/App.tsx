@@ -10,6 +10,7 @@ import type { Contest } from "./types/contest";
 import ContestResultsSummary from "./components/ContestResultsSummary";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import CookieBanner from "./components/CookieBanner";
 
 function AppShell() {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -254,6 +255,7 @@ function AppShell() {
       >
         ↑
       </a>
+      <CookieBanner />
     </div>
   );
 }
