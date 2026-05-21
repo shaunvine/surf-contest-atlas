@@ -48,8 +48,8 @@ export default function CookieBanner() {
       <p>Surf Contest Atlas uses analytics cookies to understand site usage.</p>
 
       <div className="cookie-banner__actions">
-        <button onClick={accept}>Accept</button>
-        <button onClick={reject}>Reject</button>
+        <button onClick={accept}>Accept Analytics</button>
+        <button onClick={reject}>Essential Only</button>
       </div>
     </div>
   );
