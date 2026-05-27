@@ -34,4 +34,5 @@ export type Contest = {
   conditions: string;
   notes: string;
   website?: string;
+  source?: string;
 };

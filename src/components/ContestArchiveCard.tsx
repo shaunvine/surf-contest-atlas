@@ -163,11 +163,14 @@ export default function ContestArchiveCard({
         <>
           <div className="contest-archive-card__section">
             <p>
-              <strong>Wave type:</strong> {contest.waveType}
+              <span className="contest-detail-label">Wave Type:</span>{" "}
+              <span className="contest-detail-value">{contest.waveType}</span>
             </p>
-            <p>
-              <strong>Conditions:</strong> {contest.conditions}
-            </p>
+            {hasText(contest.conditions) && (
+              <p>
+                <strong>Conditions:</strong> {contest.conditions}
+              </p>
+            )}
           </div>
 
           <div className="contest-archive-card__rule" />
@@ -185,6 +188,9 @@ export default function ContestArchiveCard({
         >
           View contest site
         </a>
+      )}
+      {hasText(contest.source) && (
+        <p className="contest-archive-card__source">Source: {contest.source}</p>
       )}
     </article>
   );

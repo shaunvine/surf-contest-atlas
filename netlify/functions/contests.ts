@@ -208,6 +208,7 @@ export const handler = async (event: any) => {
       conditions: contest.conditions,
       notes: contest.notes,
       website: contest.website,
+      source: contest.source,
 
       // Flattened search field keeps surfer-name search working
       searchText: [

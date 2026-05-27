@@ -47,7 +47,7 @@ export default function Header({ navHidden }: HeaderProps) {
       >
         <div className="container site-header__inner">
           <a href="#top" className="logo" aria-label="Surf Contest Atlas home">
-            <Logo width={200} />
+            <Logo width={100} />
           </a>
 
           <nav

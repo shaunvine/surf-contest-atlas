@@ -7,6 +7,8 @@
   --panel-border: #0b5d86;
 
   --panel-opacity: 0.8;
+  --hero-panel-background: rgb(16 108 144 / 75%);
+  --header-background:rgb(14 114 150 / 75%);
 
   --nav-bg: rgba(11, 60, 93, 0.85);
 
@@ -155,10 +157,9 @@ h3 {
 
 .hero-panel,
 .content-panel {
-  background: var(--panel-bg);
+  background: var(--hero-panel-background);
   border: 1px solid var(--panel-bg-light);
   padding: 42px 34px;
-  opacity: var(--panel-opacity);
 }
 
 .hero-panel {
@@ -169,7 +170,7 @@ h3 {
   text-align: center;
   overflow: hidden;
   background-color: #0b3c5d;
-  background-image: url("/contest-atlas-hero-world.svg");
+  background-image: url("/contest-atlas-hero-world-pins.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -227,14 +228,15 @@ h3 {
   gap: 24px;
 }
 
-.contest-column {
-  min-width: 0;
-}
-
 .panel-card {
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
   padding: var(--panel-padding);
+}
+
+.contest-column {
+  min-width: 0;
+  background: var(--hero-panel-background);
 }
 
 .panel-title {
@@ -263,12 +265,11 @@ h3 {
 }
 
 .site-header__inner {
-  background: var(--panel-bg);
-  opacity: var(--panel-opacity);
+  background: var(--header-background);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 36px;
+  padding: 10px 36px;
   min-height: 86px;
   transition: opacity 220ms ease;
   border: 1px solid var(--panel-bg-light);
@@ -1525,6 +1526,17 @@ h3 {
   margin: 18px 0;
 }
 
+.contest-detail-label {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.contest-detail-value {
+  font-weight: 400;
+  opacity: 0.92;
+  text-transform: capitalize;
+}
+
 .contest-archive-card__notes {
   margin-top: auto;
 }
@@ -1534,6 +1546,13 @@ h3 {
   margin-top: auto;
   font-weight: 700;
   text-decoration: underline;
+}
+
+.contest-archive-card__source {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-transform: capitalize;
 }
 
 .contest-card-highlight .contest-archive-card {
@@ -1657,8 +1676,8 @@ p.about-text {
 }
 
 .site-footer__inner {
-  background: var(--header-bg);
-  opacity: var(--panel-opacity);
+  background: var(--header-background);
+
   min-height: 60px;
   display: flex;
   align-items: self-end;

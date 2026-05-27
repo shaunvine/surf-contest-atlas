@@ -159,6 +159,7 @@ var handler = async (event) => {
       conditions: contest.conditions,
       notes: contest.notes,
       website: contest.website,
+      source: contest.source,
       searchText: [
         contest.name,
         contest.city,
