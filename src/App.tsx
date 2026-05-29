@@ -93,9 +93,14 @@ function AppShell() {
 
   return (
     <div className="site-shell">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       <div id="top" />
       <Header navHidden={navHidden} />
-      <main>
+
+      <main id="main-content" tabIndex={-1}>
         <section className="hero-section">
           <div className="container hero-panel">
             <div className="hero-content">
