@@ -78,7 +78,7 @@ export default function ContactForm({ formspreeEndpoint }: ContactFormProps) {
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
+    event.preventDefault();
 
     const nextErrors = validate(values);
     setErrors(nextErrors);
@@ -215,7 +215,7 @@ export default function ContactForm({ formspreeEndpoint }: ContactFormProps) {
           ) : null}
         </div>
 
-        <div className="form-field form-field--hidden" aria-hidden="true">
+        <div className="form-field form-field--hidden">
           <label htmlFor="company">Company</label>
           <input
             id="company"
@@ -223,6 +223,7 @@ export default function ContactForm({ formspreeEndpoint }: ContactFormProps) {
             type="text"
             tabIndex={-1}
             autoComplete="off"
+            aria-label="Leave this field blank"
             value={values.company}
             onChange={handleChange}
           />
@@ -246,7 +247,8 @@ export default function ContactForm({ formspreeEndpoint }: ContactFormProps) {
               Message sent
             </h3>
             <p id="contact-success-description">
-              Thanks for reaching out. Your message has been sent successfully. We will respond within 1-2 business days.
+              Thanks for reaching out. Your message has been sent successfully.
+              We will respond within 1-2 business days.
             </p>
             <button
               type="button"

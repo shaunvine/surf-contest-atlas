@@ -17,7 +17,7 @@ export default function TopWinnersCard({
   emptyMessage,
 }: TopWinnersCardProps) {
   return (
-    <section className="panel-card details-card">
+    <section className="details-card">
       <h3 className="panel-title">{title}</h3>
 
       {items.length === 0 ? (

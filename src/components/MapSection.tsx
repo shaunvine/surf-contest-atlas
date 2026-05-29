@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useFilters } from "../context/FilterContext";
+import { setOptions, importLibrary } from "@googlemaps/js-api-loader";
 
 const TOUR_COLORS = {
   IPS: "#07683F",
@@ -135,6 +136,28 @@ function buildVenueInfoWindowContent(
 }
 
 export default function MapSection() {
+  const [mapsReady, setMapsReady] = useState(false);
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    async function loadGoogleMaps() {
+      setOptions({
+        key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+      });
+
+      await importLibrary("maps");
+
+      if (!isCancelled) setMapsReady(true);
+    }
+
+    loadGoogleMaps();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
@@ -259,7 +282,7 @@ export default function MapSection() {
 
   useEffect(() => {
     if (!mapElementRef.current) return;
-    if (!window.google || !window.google.maps) return;
+    if (!mapsReady) return;
 
     if (!mapRef.current) {
       mapRef.current = new google.maps.Map(mapElementRef.current, {
@@ -288,6 +311,7 @@ export default function MapSection() {
         position: { lat: contest.latitude, lng: contest.longitude },
         map: mapRef.current!,
         title: contest.name,
+        optimized: false,
         icon: createPinIcon(getTourColor(contest.tour)),
       });
 
@@ -428,7 +452,14 @@ export default function MapSection() {
       infoWindowDomReadyListenerRef.current?.remove();
       infoWindowDomReadyListenerRef.current = null;
     };
-  }, [groupedByVenue, setSelectedContestId, setFilters]);
+  }, [
+    mapsReady,
+    groupedByVenue,
+    setSelectedContestId,
+    setFilters,
+    filters.tour,
+    setPendingScrollContestId,
+  ]);
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -555,6 +586,20 @@ export default function MapSection() {
             >
               WSL
             </button>
+            <a
+              href="#contest-list-title"
+              className="skip-map-link"
+              onClick={(event) => {
+                event.preventDefault();
+
+                document.getElementById("contest-list-title")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
+            >
+              Go to Results ↓
+            </a>
           </div>
         </div>
       </div>
@@ -566,6 +611,10 @@ export default function MapSection() {
           </div>
         )}
 
+        <p id="map-description" className="sr-only">
+          This map visually displays contest locations. All filtered contest
+          results are available in the results cards below.
+        </p>
         <div id="map" ref={mapElementRef} />
       </div>
     </section>
