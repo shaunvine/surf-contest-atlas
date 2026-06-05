@@ -165,8 +165,16 @@ export default function FilterPanel() {
 
       <div className="filter-column filter-column--decade">
         <div className="filter-control">
-          {/* <label htmlFor="decade-slider">Decade</label> */}
+          {/* NEW SR: Provides an accessible name for the range slider */}
+          <label
+            id="decade-slider-label"
+            htmlFor="decade-slider"
+            className="sr-only"
+          >
+            Filter contests by decade
+          </label>
 
+          {/* NEW SR: Visible status text showing the active decade filter */}
           <div className="decade-label">{activeDecadeText}</div>
 
           <div className="decade-slider-wrap">
@@ -176,6 +184,7 @@ export default function FilterPanel() {
               aria-hidden="true"
               style={{ width: `${sliderFillPercent}%` }}
             />
+
             <input
               ref={sliderRef}
               id="decade-slider"
@@ -185,6 +194,7 @@ export default function FilterPanel() {
               max={String(Math.max(decades.length - 1, 0))}
               step="1"
               value={selectedDecadeIndex}
+              aria-labelledby="decade-slider-label"
               aria-valuetext={activeDecadeText}
               onChange={(e) => handleDecadeChange(e.target.value)}
               onPointerDown={handleSliderPointerDown}
