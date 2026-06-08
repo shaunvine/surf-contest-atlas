@@ -3,12 +3,12 @@
   --page-bg: #074a78;
   --header-bg: #5aa7a6;
   --panel-bg: #0f7296;
-  --panel-bg-light: #4ea8b2;
-  --panel-border: #0b5d86;
+  --panel-bg-light: #2E689A;
+  --panel-border: #5aa7a6;
 
   --panel-opacity: 0.8;
   --hero-panel-background: rgb(16 108 144 / 75%);
-  --header-background: rgb(14 114 150 / 75%);
+  --header-background: rgb(16 108 144 / 75%);
 
   --nav-bg: rgba(11, 60, 93, 0.85);
 
@@ -29,7 +29,7 @@
   --input-text: #0f2a3a;
 
   --accent-dark: #0d3f6a;
-  --accent-bright: #fa8c25;
+  --accent-bright: #FAA525;
   --focus-outline: #ff5130;
 
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -50,6 +50,8 @@
   --h2-line: 48px;
   --h3-size: 24px;
   --h3-line: 35px;
+  --h4-size: 22px;
+  --h4-line: 33px;
   --body-size: 16px;
   --body-size-large: 18px;
   --body-size-about: 18px;
@@ -198,7 +200,7 @@ html {
 .hero-panel,
 .content-panel {
   background: var(--hero-panel-background);
-  border: 1px solid var(--panel-bg-light);
+  border: 1px solid var(--panel-border);
   padding: 42px 34px;
 }
 
@@ -311,8 +313,7 @@ html {
   padding: 10px 36px;
   min-height: 86px;
   transition: opacity 220ms ease;
-  border: 1px solid var(--panel-bg-light);
-  /* background: linear-gradient(90deg, #0a3c5d, #0a3d5e, #094166, #084874, #084a78, #084a78, #07507d, #07648c, #0e7095, #0f7296); */
+  border: 1px solid var(--panel-border);
 }
 
 .logo {
@@ -547,6 +548,7 @@ html {
   grid-template-columns: 280px repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
+  background-color: #2E689A;
 }
 
 .filter-column {
@@ -558,7 +560,7 @@ html {
   height: 100%;
   align-self: stretch;
   justify-content: space-evenly;
-  border: solid 1px var(--panel-bg-light);
+  border: solid 1px var(--panel-border);
 }
 
 .filter-column .panel-title {
@@ -1360,6 +1362,7 @@ html {
 }
 
 .panel-title.filter-notification {
+  font-size: 22px;
   color: var(--accent-bright);
 }
 
@@ -1728,13 +1731,13 @@ p.about-text {
 
 .site-footer__inner {
   background: var(--header-background);
-
   min-height: 60px;
   display: flex;
   align-items: self-end;
   justify-content: center;
   gap: 18px;
   padding: 12px 20px;
+  border: 1px solid var(--panel-border);
 }
 
 .social-links {
@@ -1907,7 +1910,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/contest-atlas-bg.webp");
+  background-image: url("/contest-atlas-bg-optimized.webp");
   background-repeat: repeat;
   background-size: 1400px;
   pointer-events: none;
